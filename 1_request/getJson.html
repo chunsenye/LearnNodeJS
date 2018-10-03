@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取josn数据</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="json"></div>
+</body>
+<script>
+    $.ajax({
+        type: "GET",
+        url: 'http://47.75.195.199/NodeApi/test2.json',
+        dataType: 'jsonp',
+        jsonp: 'callback',
+        jsonpCallback:"successCallback",
+        success: function (response) {
+            console.log('success:'+response)
+        },
+        error:function(error){
+            console.log('error:'+error)
+        }
+    }).done(function(data){
+        console.log(data)
+    })
+</script>
+
+</html>
